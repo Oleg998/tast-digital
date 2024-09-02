@@ -53,6 +53,6 @@ export default defineConfig(({ command }) => {
         },
       },
     },
-    base:'/tast-digital'
+    base: '/tast-digital'
   };
 });
