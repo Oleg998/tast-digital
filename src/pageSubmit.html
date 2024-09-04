@@ -20949,5 +20949,25 @@
     <script type="module" src="./js/form.js"></script>
    <script type="module" src="./js/jquery.min.js"></script>
    <script type="module" src="./js/cfdc19dfbfed996b51e054257d56a05c.js"></script>
+   <script>
+    const callback = document.getElementById('callback');
+ 
+ 
+ const elements = document.querySelectorAll('a, button');
+ 
+ 
+ elements.forEach(element => {
+     if (!element.classList.contains('form-btn')) {
+         element.addEventListener('click', function(e) {
+             e.preventDefault(); 
+ 
+       
+             callback.scrollIntoView({
+                 behavior: 'smooth'
+             });
+         });
+     }
+ });
+    </script>
   </body>
 </html>
