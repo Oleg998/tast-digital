@@ -5963,9 +5963,7 @@ margin: 0;}
   fill: #0dca54;
 }
 
-header{
-  position: fixed;
-}
+
 
 @media (min-width: 1065px) {
   .heder-user-containet{
