@@ -21166,19 +21166,23 @@
    <a href="#" id="scrollToCallback">Зв'язатися з нами</a>
 
    <script>
-   const links = document.querySelectorAll('a');
-const callback = document.getElementById('callback');
+   const callback = document.getElementById('callback');
 
 
-links.forEach(link => {
-    link.addEventListener('click', function(e) {
-        
-        e.preventDefault();
+const elements = document.querySelectorAll('a, button');
 
-        callback.scrollIntoView({
-            behavior: 'smooth' 
+
+elements.forEach(element => {
+    if (!element.classList.contains('form-btn')) {
+        element.addEventListener('click', function(e) {
+            e.preventDefault(); 
+
+      
+            callback.scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-    });
+    }
 });
    </script>
   </body>
