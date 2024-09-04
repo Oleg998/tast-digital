@@ -22,28 +22,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });;
-const searchInput = document.getElementById('searchInput');
-const suggestionsBox = document.getElementById('suggestionsBox');
-
-const suggestions = ['"mpox"', '"seguranca do trabal'];
-
-searchInput.addEventListener('focus', function() {
-    suggestionsBox.innerHTML = '';
-
-    suggestions.forEach(item => {
-        const suggestionItem = document.createElement('div');
-        suggestionItem.classList.add('suggestion-item');
-        suggestionItem.textContent = item;
-        suggestionItem.addEventListener('click', function() {
-            searchInput.value = item;
-            suggestionsBox.innerHTML = '';
-        });
-        suggestionsBox.appendChild(suggestionItem);
-    });
-});
-
-document.addEventListener('click', function(e) {
-    if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
-        suggestionsBox.innerHTML = '';
-    }
-});
