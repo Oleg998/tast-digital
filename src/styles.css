@@ -3106,6 +3106,7 @@ html {
   justify-content: var(--glb-share--justify, flex-start);
 }
 .glb-share-bar_icons {
+  
   display: flex;
   min-height: var(--glb-share-icon--h, 22px);
   position: relative;
@@ -3159,6 +3160,7 @@ html {
   );
 }
 .glb-share-bar_button {
+  border:none;
   background-color: var(--btn-share-bg--clr);
   border-radius: var(--glb-share-icon--border-radius, 0);
   display: var(--btn-share--display, flex);
@@ -3170,7 +3172,9 @@ html {
   position: relative;
   width: var(--glb-share-icon--w, auto);
 }
+
 .glb-share-bar_button-img {
+  
   background-image: var(--btn-share-icon-img);
   background-position: 50%;
   background-repeat: no-repeat;
@@ -5929,8 +5933,21 @@ body {
   gap: 12px;
 }
 
+.social-list {
+  display: flex;
+  justify-content:space-between;
+}
+.social-btn{
+  max-width: 208px;
+  border: none;
+ 
 
+}
 
+.social-svg{
+  stroke: #06AA48;
+  fill: #0dca54;
+}
 
 @media (min-width: 1065px) {
   .heder-user-containet{

@@ -1309,6 +1309,41 @@
             </p>
           </section>
           <section class="mc-column content-text active-extra-styles">
+            <div class="glb-share-bar_icons">
+              <!-- Кнопка для спільного доступу у Facebook -->
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://g1.globo.com/sp/sao-paulo/noticia/2023/07/04/ze-celso-e-internado-apos-incendio-atingir-apartamento-onde-mora-em-sp.ghtml?utm_source=facebook&amp;utm_medium=share-bar-desktop&amp;utm_campaign=materias" target="_blank" class="glb-share-bar_button amp-social-share-facebook i-amphtml-element i-amphtml-layout-fill i-amphtml-layout-size-defined i-amphtml-built" aria-label="Share on Facebook">
+                  <div class="glb-share-bar_button-img"></div>
+              </a>
+          
+              <!-- Кнопка для спільного доступу у WhatsApp -->
+              <a href="https://api.whatsapp.com/send?text=https://g1.globo.com/sp/sao-paulo/noticia/2023/07/04/ze-celso-e-internado-apos-incendio-atingir-apartamento-onde-mora-em-sp.ghtml?utm_source=whatsapp&amp;utm_medium=share-bar-desktop&amp;utm_campaign=materias" target="_blank" class="glb-share-bar_button amp-social-share-whatsapp i-amphtml-element i-amphtml-layout-fill i-amphtml-layout-size-defined i-amphtml-built" aria-label="Share on WhatsApp">
+                  <div class="glb-share-bar_button-img"></div>
+              </a>
+          
+              <!-- Системний обмін -->
+              <button class="glb-share-bar_button amp-social-share-system i-amphtml-element i-amphtml-layout-fill i-amphtml-layout-size-defined i-amphtml-built" aria-label="Share via system" onclick="shareSystem()">
+                  <div class="glb-share-bar_button-img"></div>
+              </button>
+
+              
+          </div>
+          
+          <script>
+              function shareSystem() {
+                  if (navigator.share) {
+                      navigator.share({
+                          title: 'Ze Celso Internado',
+                          text: 'Ze Celso foi internado após incêndio atingir apartamento onde mora em SP.',
+                          url: 'https://g1.globo.com/sp/sao-paulo/noticia/2023/07/04/ze-celso-e-internado-apos-incendio-atingir-apartamento-onde-mora-em-sp.ghtml'
+                      }).catch((error) => console.log('Error sharing:', error));
+                  } else {
+                      alert('Web Share API is not supported in this browser.');
+                  }
+              }
+          </script>
+          
+          </section>
+          <section class="mc-column content-text active-extra-styles">
           <p class="text-semibolt">-Como posso me tornar um membro da plataforma de negociação Digital Real?</p>
           <p class="text-medium-italic">- Agora, as pessoas comuns podem acessar facilmente a plataforma de negociação fornecida pelo banco. O processo de registro é simples:</p>
           <ol class="list-number">
