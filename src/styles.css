@@ -3159,6 +3159,7 @@ html {
     url("images/system.svg")
   );
 }
+
 .glb-share-bar_button {
   border:none;
   background-color: var(--btn-share-bg--clr);
@@ -3172,10 +3173,18 @@ html {
   position: relative;
   width: var(--glb-share-icon--w, auto);
 }
-
+.glb-share-bar_button-img-facebook {
+  background-image:url("./images/fb.svg");
+}
+.glb-share-bar_button-img-w {
+  background-image:url("./images/whatsapp.svg");
+}
+.glb-share-bar_button-img-s {
+  background-image:url("./images/system.svg");
+}
 .glb-share-bar_button-img {
   
-  background-image: var(--btn-share-icon-img);
+  
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: var(--btn-share-icon--w, 20px)
