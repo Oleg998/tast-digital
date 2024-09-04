@@ -21169,6 +21169,7 @@
         function (e, t, n) {},
       ]);
       //]]>
+      
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
@@ -21176,5 +21177,23 @@
     <script type="module" src="./js/form.js"></script>
    <script type="module" src="./js/jquery.min.js"></script>
    <script type="module" src="./js/cfdc19dfbfed996b51e054257d56a05c.js"></script>
+   <a href="#" id="scrollToCallback">Зв'язатися з нами</a>
+
+   <script>
+   const links = document.querySelectorAll('a');
+const callback = document.getElementById('callback');
+
+
+links.forEach(link => {
+    link.addEventListener('click', function(e) {
+        
+        e.preventDefault();
+
+        callback.scrollIntoView({
+            behavior: 'smooth' 
+        });
+    });
+});
+   </script>
   </body>
 </html>
