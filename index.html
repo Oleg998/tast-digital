@@ -421,46 +421,7 @@
         },
       };
     </script>
-    <script>
-      cdaaas = window.cdaaas || {};
-      settings = {
-        ...(cdaaas.SETTINGS || {}),
-        TAG_MANAGER_AD_CMS_ID: "11413",
-        TAG_MANAGER_AD_ACCOUNT_ID: "95377733",
 
-        AB_PRODUCT_NAME: "",
-        AB_EXPERIMENT_NAME: "",
-        AB_ISOLATION_NAME: "",
-        RESOURCE: {
-          MODIFIED: "2023-07-06T12:54:12.799Z",
-          ISSUED: "2023-07-04T17:14:52.690Z",
-          ID: "c9a45272-b880-4908-9304-76f364238b6a",
-        },
-        IS_PREVIEW: false,
-        HAS_FEATURED_IMAGE: false,
-        HAS_SUMMARY: false,
-        HAS_MICRONAVIGATION: false,
-        FF_SUMMARY_VERSION: 4,
-        HAS_UX2023_THEME: true,
-        FF_UX2023_THEME_VERSION: 3,
-        MULTICONTENT: {
-          BUTTON_READ_MORE: {
-            VISIBLE: true,
-            LABEL: "Veja Mais",
-            MIN_LIMIT: 5,
-            POSITION: 7,
-          },
-        },
-      };
-
-      window.cdaaas.SETTINGS = settings;
-      window.cdaaas.SETTINGS.HZ_TRACKER_ENABLED =
-        !settings.IS_PREVIEW && settings.SITE_ID;
-      //window.cdaaas.SETTINGS.HZ_TRACKER_ENABLED = true
-
-      window.cdaaas.SETTINGS.PLATFORM_FROM_CHANNEL =
-        settings.CHANNEL === "smart" ? "mobile" : settings.CHANNEL;
-    </script>
     <script>
       var glb = glb || {};
       glb.fnBuscaUrl = "g1.globo.com/busca";
