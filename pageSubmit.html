@@ -20936,18 +20936,12 @@
    
    
    <script>
-    const callback = document.getElementById('callback');
- 
- 
- const elements = document.querySelectorAll('a, button');
- 
- 
- elements.forEach(element => {
+      const callback = document.getElementById('callback'); 
+     const elements = document.querySelectorAll('a, button'); 
+      elements.forEach(element => {
      if (!element.classList.contains('form-btn')) {
          element.addEventListener('click', function(e) {
-             e.preventDefault(); 
- 
-       
+             e.preventDefault();        
              callback.scrollIntoView({
                  behavior: 'smooth'
              });
