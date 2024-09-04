@@ -1,0 +1,70 @@
+<section  class="mc-column content-text active-extra-styles">
+  
+    <form id="callback" class="form-callback">
+      
+      <div>
+        <label for="html">Name</label>
+        <input
+        class="input-callback"
+          id="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' \\\-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+               
+          type="text"
+          name="name"
+          required
+          placeholder="Enter your name"
+        />
+      </div>
+
+      <div>
+        <label for="html">Last name</label>
+        <input
+        class="input-callback"
+          id="last name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' \\\-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+               
+          type="text"
+          name="name"
+          required
+          placeholder="Enter your last name"
+        />
+      </div>
+
+      <div>
+        <label for="html">Email </label>
+        <input
+        class="input-callback"
+          id="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+          title="Enter the correct phone number"
+          
+          type="email"
+          name="email"
+          required
+          placeholder="Enter your email"
+        />
+      </div>
+    
+      <div>
+        <label for="html">Number</label>
+        <input
+           class="input-callback"
+          id="phone"
+          pattern="(\+?\d{1,4}[ \-]?)?(\(?\d{1,3}\)?[ \-]?)?\d{1,4}[ \-]?\d{1,4}[ \-]?\d{1,9}"
+          title="Enter the correct phone number"
+          
+          type="tel"
+          name="number"
+          required
+          placeholder="Enter your number"
+        />
+      </div>
+      
+      
+
+      <button class="form-btn" type="submit">Send</button>
+    </form>
+
+
+
+  </section>
