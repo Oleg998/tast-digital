@@ -103,7 +103,7 @@ section {
 body {
   line-height: 1;
 }
-
+ol,
 ul {
   list-style: none;
 }
@@ -5914,6 +5914,7 @@ body {
   font-weight: 500;
 }
 .list-number{
+  list-style: decimal ;
   padding:0 15px;
 margin: 0;}
 .text-item {
