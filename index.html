@@ -26,11 +26,11 @@
     }
 
     const elements = document.querySelectorAll('a, button');
-    const burgerMenu = document.getElementById('menu-curtain--opened'); 
+    const burgerMenu = document.getElementById('menu-curtain'); 
         function closeMenu() {
-        if (burgerMenu) {
+        
             burgerMenu.classList.remove("menu-curtain--opened"); 
-        }
+        
     }
     elements.forEach(element => {
         if (!element.classList.contains('form-btn')) {
