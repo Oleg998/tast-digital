@@ -31,11 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const elements = document.querySelectorAll('a, button');
+  const body=document.querySelectorAll('body')
   const burgerMenu = document.getElementById('menu-curtain'); 
-      function closeMenu() {
-      
+      function closeMenu() {         
           burgerMenu.classList.remove("menu-curtain--opened"); 
-      
+          body.classList.remove("menu--no-scroll");
+               
   }
   elements.forEach(element => {
       if (!element.classList.contains('form-btn')) {
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
               });
 
               closeMenu();
+             
           });
       }
   });
