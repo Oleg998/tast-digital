@@ -1,11 +1,98 @@
-const burgerMenuButton = document.querySelector('.menu-area');
-const menuCurtain = document.getElementById('menu-curtain');
-const body = document.body;
-const menuContainer = document.getElementById('menu-container');
-const menuContentOverlay = document.getElementById('menu-content-overlay');
-const menuRounder = document.getElementById('menu-rounder');
-const menuCascade = document.getElementById('menu-cascade');
+
 let currentState = 0;
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Обработчик кликов для открытия меню
+    const burgerMenuButton = document.querySelector('.menu-area');
+    const menuCurtain = document.getElementById('menu-curtain');
+    const body = document.body;
+    const menuContainer = document.getElementById('menu-container');
+    const menuContentOverlay = document.getElementById('menu-content-overlay');
+    const menuRounder = document.getElementById('menu-rounder');
+    const menuCascade = document.getElementById('menu-cascade');
+
+    burgerMenuButton.addEventListener('click', () => {
+        menuCurtain.classList.add('menu-curtain--opened', 'menu-curtain--animate');
+        menuContainer.style.display = 'block';
+        body.classList.add('menu--no-scroll');
+        menuContentOverlay.classList.toggle("active");
+
+        // Обработчики кликов по элементам меню
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.removeEventListener('click', handleMenuItemClick);
+            item.removeEventListener('click', logMenuInteraction);
+            item.addEventListener('click', () => {
+                handleMenuItemClick(item);
+                logMenuInteraction(item);
+            });
+        });
+
+        if (menuRounder) {
+            menuRounder.classList.add('menu-rounder--opened-all');
+        }
+    });
+
+    // Функция закрытия меню
+    const closeMenu = () => {
+        menuContentOverlay.classList.remove("active");
+        menuCurtain.classList.remove('menu-curtain--opened', 'menu-curtain--animate');
+        body.classList.remove('menu--no-scroll');
+        menuContainer.style.display = 'none';
+        if (menuRounder) {
+            menuRounder.classList.remove('menu-rounder--opened-all');
+        }
+        closeAllMenuLevels(); // Закрытие всех уровней меню при закрытии меню
+    };
+
+    // Закрытие меню при клике вне его
+    document.addEventListener('click', (event) => {
+        if (!menuContainer.contains(event.target) && !burgerMenuButton.contains(event.target)) {
+            closeMenu();
+        }
+    });
+
+    // Закрытие меню при клике на ссылки
+    document.querySelectorAll('a').forEach(item => {
+        item.addEventListener('click', closeMenu);
+    });
+
+    // Обработчики для стрелок и кнопок "назад"
+    const menuItemArrows = document.querySelectorAll('.is-father');
+    const menuItemArrowsBack = document.querySelectorAll('.menu-btn-back__icon');
+
+    // Обновляем состояние меню
+    const updateTransform = () => {
+        const transformValues = [0, -272, -544, -816];
+        if (menuRounder) {
+            menuRounder.style.transform = `translateX(${transformValues[currentState]}px)`;
+        }
+    };
+
+    // Переход на следующий уровень меню
+    const toggleTransform = () => {
+        currentState = (currentState + 1) % 4;
+        updateTransform();
+        updateParentClass();
+    };
+
+    // Возврат на предыдущий уровень меню
+    const toggleTransformBack = () => {
+        currentState = (currentState - 1 + 4) % 4;
+        updateTransform();
+        updateParentClass();
+    };
+
+    menuItemArrows.forEach(arrow => {
+        arrow.removeEventListener('click', toggleTransform);
+        arrow.addEventListener('click', toggleTransform);
+    });
+
+    menuItemArrowsBack.forEach(backArrow => {
+        backArrow.removeEventListener('click', toggleTransformBack);
+        backArrow.addEventListener('click', toggleTransformBack);
+    });
+});
+
 
 // Функция для обновления трансформации
 const updateTransform = () => {
@@ -117,51 +204,7 @@ const getBreadcrumb = (e) => {
     return breadcrumbs.reverse().join(" > ");
 };
 
-// Открытие меню
-burgerMenuButton.addEventListener('click', () => {
-    menuCurtain.classList.add('menu-curtain--opened', 'menu-curtain--animate');
-    menuContainer.style.display = 'block';
-    body.classList.add('menu--no-scroll');
-    menuContentOverlay.classList.toggle("active");
 
-    // Обработчики кликов по элементам меню
-    document.querySelectorAll('.menu-item').forEach(item => {
-        item.removeEventListener('click', handleMenuItemClick);
-        item.removeEventListener('click', logMenuInteraction);
-        item.addEventListener('click', () => {
-            handleMenuItemClick(item);
-            logMenuInteraction(item);
-        });
-    });
-
-    if (menuRounder) {
-        menuRounder.classList.add('menu-rounder--opened-all');
-    }
-});
-
-// Закрытие меню
-const closeMenu = () => {
-    menuContentOverlay.classList.remove("active");
-    menuCurtain.classList.remove('menu-curtain--opened', 'menu-curtain--animate');
-    body.classList.remove('menu--no-scroll');
-    menuContainer.style.display = 'none';
-    if (menuRounder) {
-        menuRounder.classList.remove('menu-rounder--opened-all');
-    }
-    closeAllMenuLevels(); // Закрыть все уровни меню при закрытии меню
-};
-
-// Закрытие меню при клике вне него
-document.addEventListener('click', (event) => {
-    if (!menuContainer.contains(event.target) && !burgerMenuButton.contains(event.target)) {
-        closeMenu();
-    }
-});
-
-// Закрытие меню при клике на ссылки
-document.querySelectorAll('a').forEach(item => {
-    item.addEventListener('click', closeMenu);
-});
 
 // Обработчики для стрелок и кнопок "назад"
 document.querySelectorAll('.is-father').forEach(arrow => {
