@@ -31,8 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const elements = document.querySelectorAll('a, button');
-  const body=document.querySelectorAll('body')
+  const body = document.querySelector('body')
   const burgerMenu = document.getElementById('menu-curtain'); 
+
       function closeMenu() {         
           burgerMenu.classList.remove("menu-curtain--opened"); 
           body.classList.remove("menu--no-scroll");
