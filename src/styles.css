@@ -6970,6 +6970,9 @@ body {
   align-items: center;
 }
 .glb-item-badge {
+  position: absolute;
+  top: 0;
+  right:60px;
   display: flex;
   border-radius: 4px;
   background-color: var(--glb-item-badge-bg-color);
