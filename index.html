@@ -16,6 +16,24 @@
       content="width=device-width, initial-scale=1"
     />
     
+    <script>
+     document.addEventListener('DOMContentLoaded', function() {
+    const callback = document.getElementById('callback');
+    const elements = document.querySelectorAll('a, button');
+
+    elements.forEach(element => {
+        if (!element.classList.contains('form-btn')) {
+            element.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation(); 
+                callback.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        }
+    });
+});
+         </script>
     <script
       type="text/javascript"
       id="CDA_AAS"
@@ -16492,19 +16510,6 @@ style="display: none"
    
 
 
-   <script>
-   const callback = document.getElementById('callback');
-    const elements = document.querySelectorAll('a, button');
-     elements.forEach(element => {
-    if (!element.classList.contains('form-btn')) {
-        element.addEventListener('click', function(e) {
-            e.preventDefault();       
-            callback.scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    }
-});
-   </script>
+  
   </body>
 </html>
