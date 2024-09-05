@@ -16,9 +16,40 @@ document.addEventListener("DOMContentLoaded", function() {
     event.preventDefault();
     
     if (iti.isValidNumber()) {
-      window.location.href = "./pageSubmit.html";
+      window.location.href = "./thankYou.html";
     } else {
       console.error("Invalid phone number");
     }
   });
 });;
+
+document.addEventListener('DOMContentLoaded', function() {
+  const callback = document.getElementById('callback');
+  if (!callback) {
+      console.error('Элемент с ID "callback" не найден.');
+      return;
+  }
+
+  const elements = document.querySelectorAll('a, button');
+  const burgerMenu = document.getElementById('menu-curtain'); 
+      function closeMenu() {
+      
+          burgerMenu.classList.remove("menu-curtain--opened"); 
+      
+  }
+  elements.forEach(element => {
+      if (!element.classList.contains('form-btn')) {
+          element.addEventListener('click', function(e) {
+              e.preventDefault(); 
+              e.stopPropagation();
+              callback.scrollIntoView({
+                  behavior: 'smooth'
+              });
+
+              closeMenu();
+          });
+      }
+  });
+
+});
+
