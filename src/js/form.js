@@ -23,36 +23,19 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });;
 
-document.addEventListener('DOMContentLoaded', function() {
-  const callback = document.getElementById('callback');
-  if (!callback) {
-      console.error('Элемент с ID "callback" не найден.');
-      return;
-  }
 
-  const elements = document.querySelectorAll('a, button');
-  const body = document.querySelector('body')
-  const burgerMenu = document.getElementById('menu-curtain'); 
 
-      function closeMenu() {         
-          burgerMenu.classList.remove("menu-curtain--opened"); 
-          body.classList.remove("menu--no-scroll");
-               
-  }
-  elements.forEach(element => {
-      if (!element.classList.contains('form-btn')) {
-          element.addEventListener('click', function(e) {
-              e.preventDefault(); 
-              e.stopPropagation();
-              callback.scrollIntoView({
-                  behavior: 'smooth'
-              });
+const callback = document.getElementById('callback');
+const elements = document.querySelectorAll('a, button');
 
-              closeMenu();
-             
-          });
-      }
-  });
-
+elements.forEach(element => {
+    element.addEventListener('click', function(e) {
+        
+        if (!element.classList.contains('menu-btn-back') && !element.classList.contains('form-btn')) {
+            e.preventDefault();
+            callback.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
 });
-

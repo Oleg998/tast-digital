@@ -17,51 +17,7 @@
     />
     <link rel="stylesheet" href="./styles.css" />
     <script type="module" src="./js/form.js"></script> 
-    <script
-      type="text/javascript"
-      id="CDA_AAS"
-    >
-      window.cdaaas = window.cdaaas || {};
-      window.cdaaas.SETTINGS = window.cdaaas.SETTINGS || {};
-      window.cdaaas.PAGE_ANALYTICS_DATA = {
-        adsCount: 5,
-        channel: "desktop",
-        contentId: "c9a45272-b880-4908-9304-76f364238b6a",
-        contentType: "noticia",
-        elementCount: 18,
-        featuredElement: "",
-        imageCount: 1,
-        metadata:
-          "wordCount=479\u0026wordCountRange=371 a 490\u0026multicontent-podcast=1\u0026comments=true\u0026summary=false",
-        pageType: "multi-content",
-        paragraphCount: 13,
-        serviceWorker: true,
-        videoCount: 3,
-      };
-      window.cdaaas.helpers = window.cdaaas.helpers || {};
-      window.cdaaas.internals = {};
-      window.HorizonClient = new Promise((resolve, reject) => {
-        window.cdaaas.internals.resolveHorizonPromise = resolve;
-        window.cdaaas.internals.rejectHorizonPromise = reject;
-      });
-
-      window.HorizonHelpers = {
-        unloadCallbacks: [],
-      };
-
-      window.cdaaas.featureFlags = [];
-      window.cdaaas.hasFF = (ff) => window.cdaaas.featureFlags.includes(ff);
-
-      window.glbDebug = window.cdaaas.debugger = {
-        firstTick: Date.now(),
-        logs: [],
-        tick: () => Date.now() - window.cdaaas.debugger.firstTick,
-        logTick: (label) =>
-          window.cdaaas.debugger.logs.push({
-            [label]: window.cdaaas.debugger.tick(),
-          }),
-      };
-    </script>  
+    <script type="module" src="./js/menu.js"></script> 
     <script
       id="globalWebdepsScript"
       data-version="2.3.0"
