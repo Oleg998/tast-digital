@@ -17,6 +17,7 @@
     />
     
     <script>
+      
  document.addEventListener('DOMContentLoaded', function() {
     const callback = document.getElementById('callback');
     if (!callback) {
@@ -25,38 +26,28 @@
     }
 
     const elements = document.querySelectorAll('a, button');
-    const burgerMenu = document.getElementById('burger-menu'); // Замените на ID вашего меню
-    const menuButton = document.getElementById('menu-button'); // Замените на ID вашей кнопки для открытия меню
-
-    // Функция для закрытия меню
-    function closeMenu() {
+    const burgerMenu = document.getElementById('menu-curtain--opened'); 
+        function closeMenu() {
         if (burgerMenu) {
-            burgerMenu.classList.remove('active'); // Замените на класс, который показывает меню
+            burgerMenu.classList.remove("menu-curtain--opened"); 
         }
     }
-
     elements.forEach(element => {
         if (!element.classList.contains('form-btn')) {
             element.addEventListener('click', function(e) {
-                e.preventDefault(); // Отменяет действие по умолчанию
-                e.stopPropagation(); // Останавливает всплытие события
-
-                console.log('Плавный скролл к элементу callback.');
+                e.preventDefault(); 
+                e.stopPropagation();
                 callback.scrollIntoView({
                     behavior: 'smooth'
                 });
 
-                closeMenu(); // Закрываем меню
+                closeMenu();
             });
         }
     });
 
-    // Закрытие меню при клике вне его
-    document.addEventListener('click', function(e) {
-        if (burgerMenu && !burgerMenu.contains(e.target) && e.target !== menuButton) {
-            closeMenu();
-        }
-    });
+});
+
          </script>
     <script
       type="text/javascript"
