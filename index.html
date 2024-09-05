@@ -17,51 +17,7 @@
     />
     
      
-    <script
-      type="text/javascript"
-      id="CDA_AAS"
-    >
-      window.cdaaas = window.cdaaas || {};
-      window.cdaaas.SETTINGS = window.cdaaas.SETTINGS || {};
-      window.cdaaas.PAGE_ANALYTICS_DATA = {
-        adsCount: 5,
-        channel: "desktop",
-        contentId: "c9a45272-b880-4908-9304-76f364238b6a",
-        contentType: "noticia",
-        elementCount: 18,
-        featuredElement: "",
-        imageCount: 1,
-        metadata:
-          "wordCount=479\u0026wordCountRange=371 a 490\u0026multicontent-podcast=1\u0026comments=true\u0026summary=false",
-        pageType: "multi-content",
-        paragraphCount: 13,
-        serviceWorker: true,
-        videoCount: 3,
-      };
-      window.cdaaas.helpers = window.cdaaas.helpers || {};
-      window.cdaaas.internals = {};
-      window.HorizonClient = new Promise((resolve, reject) => {
-        window.cdaaas.internals.resolveHorizonPromise = resolve;
-        window.cdaaas.internals.rejectHorizonPromise = reject;
-      });
-
-      window.HorizonHelpers = {
-        unloadCallbacks: [],
-      };
-
-      window.cdaaas.featureFlags = [];
-      window.cdaaas.hasFF = (ff) => window.cdaaas.featureFlags.includes(ff);
-
-      window.glbDebug = window.cdaaas.debugger = {
-        firstTick: Date.now(),
-        logs: [],
-        tick: () => Date.now() - window.cdaaas.debugger.firstTick,
-        logTick: (label) =>
-          window.cdaaas.debugger.logs.push({
-            [label]: window.cdaaas.debugger.tick(),
-          }),
-      };
-    </script>  
+     
     <script
       id="globalWebdepsScript"
       data-version="2.3.0"
@@ -456,8 +412,9 @@
     
 
     
-    <script type="module" crossorigin src="/tast-digital/assets/cfdc19dfbfed996b51e054257d56a05c-2e73352f.js"></script>
-    <link rel="stylesheet" href="/tast-digital/assets/cfdc19dfbfed996b51e054257d56a05c-eaf03ab1.css">
+    <script type="module" crossorigin src="/tast-digital/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/tast-digital/assets/cfdc19dfbfed996b51e054257d56a05c-3956b965.js">
+    <link rel="stylesheet" href="/tast-digital/assets/cfdc19dfbfed996b51e054257d56a05c-c019c6cb.css">
   </head>
   <body
    >
@@ -1034,11 +991,11 @@
     <nav
 id="menu-container"
 class="menu-container"
-style="display: none"
+
 >
 <div
   id="menu-rounder"
-  class="menu-rounder menu-initial"
+  class="menu-rounder "
 >
   <div
     id="menu-cascade"
@@ -2451,6 +2408,10 @@ style="display: none"
           class="menu-item-link menu-link menu-navegacao-color-primary"
         >
           <span class="menu-item-title">Jogos</span>
+          <div class="glb-item-badge glb-item-badge--warning glb-item-badge--with-submenu">
+            <div class="glb-item-badge_icon"></div>
+            <div class="glb-item-badge_label">NOVO</div>
+          </div>
           <span
             class="menu-item-arrow menu-navegacao-color-primary"
           ></span>
@@ -14717,8 +14678,8 @@ style="display: none"
   ></div>
 </div>
 </nav>
+<div id="menu-content-overlay" class="menu-content-overlay"></div>
 
-<div id="menu-content-overlay"></div>
    <script>
     
 //<![CDATA[
