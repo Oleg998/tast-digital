@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const menuContainer = document.getElementById('menu-container');
   const menuContentOverlay = document.getElementById('menu-content-overlay');
   const menuRounder = document.getElementById('menu-rounder');
-  const menuCascade = document.getElementById('menu-cascade');
+
 
   burgerMenuButton.addEventListener('click', () => {
     menuCurtain.classList.add('menu-curtain--opened', 'menu-curtain--animate');
