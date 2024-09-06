@@ -6386,7 +6386,7 @@ body {
 }
 
 .header-navegacao #busca-padrao {
-  display: none;
+  display: block;
 }
 
 .header-navegacao .search-area {
@@ -6399,13 +6399,13 @@ body {
 }
 
 .header-navegacao .search-icon {
-  display: inline-block;
+  display: block;
   position: absolute;
   fill: #fff;
   width: 24px;
   height: 24px;
   top: 50%;
-  right: 0;
+  right: 140px;
   margin-top: -12px;
 }
 
@@ -6677,7 +6677,7 @@ body {
   }
 
   .header-navegacao .search-icon {
-    display: none;
+    display: block;
   }
 
   .header-navegacao #busca-padrao {
