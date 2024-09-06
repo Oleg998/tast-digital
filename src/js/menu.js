@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Обработчик кликов для открытия меню
   const burgerMenuButton = document.querySelector('.menu-area');
   const menuCurtain = document.getElementById('menu-curtain');
   const body = document.body;
@@ -14,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     body.classList.add('menu--no-scroll');
     menuContentOverlay.classList.toggle('active');
 
-    // Обработчики кликов по элементам меню
+    
     document.querySelectorAll('.menu-item').forEach(item => {
       item.removeEventListener('click', handleMenuItemClick);
       item.removeEventListener('click', logMenuInteraction);
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Функция закрытия меню
+  
   const closeMenu = () => {
     menuContentOverlay.classList.remove('active');
     menuCurtain.classList.remove(
@@ -41,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (menuRounder) {
       menuRounder.classList.remove('menu-rounder--opened-all');
     }
-    closeAllMenuLevels(); // Закрытие всех уровней меню при закрытии меню
+    closeAllMenuLevels();
   };
 
-  // Закрытие меню при клике вне его
+  
   document.addEventListener('click', event => {
     if (
       !menuContainer.contains(event.target) &&
@@ -54,23 +53,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Закрытие меню при клике на ссылки
+  
   document.querySelectorAll('a').forEach(item => {
     item.addEventListener('click', closeMenu);
   });
 
-  // Обработчики для стрелок и кнопок "назад"
+ 
   const menuItemArrows = document.querySelectorAll('.menu-item-arrow');
   const menuItemArrowsBack = document.querySelectorAll('.menu-btn-back__icon');
 
-  // Переход на следующий уровень меню
+  
   const toggleTransform = () => {
     currentState = (currentState + 1) % 4;
     updateTransform();
     updateParentClass();
   };
 
-  // Возврат на предыдущий уровень меню
+  
   const toggleTransformBack = () => {
     currentState = (currentState - 1 + 4) % 4;
     updateTransform();
@@ -88,20 +87,20 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// Переменная для отслеживания текущего состояния меню
+
 let currentState = 0;
 
-// Обновляем трансформацию меню
+
 const updateTransform = () => {
   const menuRounder = document.querySelector('.menu-rounder');
-  const transformValues = [0, -272, -544]; // Массив трансформаций
+  const transformValues = [0, -272, -544]; 
 
   if (menuRounder) {
     menuRounder.style.transform = `translateX(${transformValues[currentState]}px)`;
   }
 };
 
-// Функция для обновления класса для элемента <ul> с классами "menu-root menu-level menu-level-0"
+
 const updateParentClass = () => {
   const menuCascade = document.getElementById('menu-cascade');
   const targetElement = menuCascade.querySelector(
@@ -117,28 +116,28 @@ const updateParentClass = () => {
   }
 };
 
-// Переход на следующий уровень меню
+
 const toggleTransform = () => {
   currentState = (currentState + 1) % 4;
   updateTransform();
   updateParentClass();
 };
 
-// Возврат на предыдущий уровень меню
+
 const toggleTransformBack = () => {
   currentState = (currentState - 1 + 4) % 4;
   updateTransform();
   updateParentClass();
 };
 
-// Функция для обработки клика по элементу меню
+
 const handleMenuItemClick = e => {
   if (e.classList.contains('is-father')) {
     document.querySelectorAll('.menu-root').forEach(menuRoot => {
       menuRoot.classList.add('menu-level--opened');
     });
 
-    // Открываем вложенное меню
+
     const menuLevel = e.querySelector('.menu-level');
     if (menuLevel) {
       menuLevel.classList.add('menu-level--opened');
@@ -150,7 +149,7 @@ const handleMenuItemClick = e => {
   }
 };
 
-// Функция для закрытия всех уровней меню
+
 const closeAllMenuLevels = () => {
   document.querySelectorAll('.menu-root').forEach(menuRoot => {
     menuRoot.classList.remove('menu-level--opened');
@@ -160,7 +159,7 @@ const closeAllMenuLevels = () => {
   });
 };
 
-// Функция для логирования взаимодействия с меню
+
 const logMenuInteraction = e => {
   const classList = e.classList;
   if (classList.contains('menu-btn-back')) {
@@ -186,7 +185,7 @@ const logMenuInteraction = e => {
   }
 };
 
-// Функция для получения хлебных крошек (breadcrumb)
+
 const getBreadcrumb = e => {
   const breadcrumbs = [];
   let currentElement = e;
@@ -207,7 +206,7 @@ const getBreadcrumb = e => {
   return breadcrumbs.reverse().join(' > ');
 };
 
-// Делегирование событий для элементов с классом 'is-father'
+
 document.addEventListener('click', e => {
   const fatherElement = e.target.closest('.is-father');
   if (fatherElement) {
@@ -216,7 +215,7 @@ document.addEventListener('click', e => {
   }
 });
 
-// Делегирование событий для кнопок "назад"
+
 document.addEventListener('click', e => {
   const backIcon = e.target.closest('.menu-btn-back__icon');
   if (backIcon) {
