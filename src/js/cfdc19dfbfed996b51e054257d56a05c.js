@@ -53,10 +53,7 @@
     n((n.s = 1));
 })([
   ,
-  function (e, t, n) {
-    'use strict';
-    n(2), window.glbDebug.logTick('onBaseDefault');
-  },
+ 
   function (e, t, n) {},
 ]);
 /*! For license information please see web.js.LICENSE.txt */
