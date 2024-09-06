@@ -1,5 +1,3 @@
-let currentState = 0;
-
 document.addEventListener('DOMContentLoaded', function () {
   // Обработчик кликов для открытия меню
   const burgerMenuButton = document.querySelector('.menu-area');
@@ -90,11 +88,14 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// Обновляем состояние меню
+// Переменная для отслеживания текущего состояния меню
+let currentState = 0;
+
+// Обновляем трансформацию меню
 const updateTransform = () => {
   const menuRounder = document.querySelector('.menu-rounder');
+  const transformValues = [0, -272, -544]; // Массив трансформаций
 
-  const transformValues = [0, -272, -544]; // Убедитесь, что этот массив соответствует вашим нуждам
   if (menuRounder) {
     menuRounder.style.transform = `translateX(${transformValues[currentState]}px)`;
   }
@@ -134,11 +135,10 @@ const toggleTransformBack = () => {
 const handleMenuItemClick = e => {
   if (e.classList.contains('is-father')) {
     document.querySelectorAll('.menu-root').forEach(menuRoot => {
-      console.log(`Adding class to element: ${menuRoot}`); //
       menuRoot.classList.add('menu-level--opened');
     });
 
-    // Если есть элемент с классом "menu-level", открываем его
+    // Открываем вложенное меню
     const menuLevel = e.querySelector('.menu-level');
     if (menuLevel) {
       menuLevel.classList.add('menu-level--opened');
@@ -150,9 +150,8 @@ const handleMenuItemClick = e => {
   }
 };
 
-// Функция для удаления класса у всех элементов меню
+// Функция для закрытия всех уровней меню
 const closeAllMenuLevels = () => {
-  console.log('Closing all menu levels...'); // Для отладки
   document.querySelectorAll('.menu-root').forEach(menuRoot => {
     menuRoot.classList.remove('menu-level--opened');
   });
@@ -187,11 +186,16 @@ const logMenuInteraction = e => {
   }
 };
 
-// Функция для получения хлебных крошек
+// Функция для получения хлебных крошек (breadcrumb)
 const getBreadcrumb = e => {
-  const breadcrumbs = [e.querySelector('.menu-item-title').textContent];
+  const breadcrumbs = [];
   let currentElement = e;
+
   while (currentElement && currentElement.id !== 'menu-cascade') {
+    const titleElement = currentElement.querySelector('.menu-item-title');
+    if (titleElement) {
+      breadcrumbs.push(titleElement.textContent);
+    }
     if (currentElement.classList.contains('is-father')) {
       const backLabel = currentElement.querySelector('.menu-btn-back__label');
       if (backLabel) {
@@ -203,14 +207,19 @@ const getBreadcrumb = e => {
   return breadcrumbs.reverse().join(' > ');
 };
 
-// Обработчики для стрелок и кнопок "назад"
-document.querySelectorAll('.is-father').forEach(arrow => {
-  arrow.removeEventListener('click', toggleTransform);
-  console.log(currentState);
-  arrow.addEventListener('click', toggleTransform);
+// Делегирование событий для элементов с классом 'is-father'
+document.addEventListener('click', e => {
+  const fatherElement = e.target.closest('.is-father');
+  if (fatherElement) {
+    toggleTransform();
+    handleMenuItemClick(fatherElement);
+  }
 });
 
-document.querySelectorAll('.menu-btn-back__icon').forEach(backArrow => {
-  backArrow.removeEventListener('click', toggleTransformBack);
-  backArrow.addEventListener('click', toggleTransformBack);
+// Делегирование событий для кнопок "назад"
+document.addEventListener('click', e => {
+  const backIcon = e.target.closest('.menu-btn-back__icon');
+  if (backIcon) {
+    toggleTransformBack();
+  }
 });
