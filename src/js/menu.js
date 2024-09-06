@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
     closeAllMenuLevels();
     currentState = 0;
     
-    // Обновляем позицию и классы
     updateTransform();
     updateParentClass();
   };
@@ -65,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
  
   const menuItemArrows = document.querySelectorAll('.menu-item-arrow');
-  const menuItemArrowsBack = document.querySelectorAll('.menu-btn-back__icon');
+  const menuItemArrowsBack = document.querySelectorAll('.menu-btn-back');
 
   
   const toggleTransform = () => {
