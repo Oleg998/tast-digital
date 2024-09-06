@@ -41,6 +41,11 @@ document.addEventListener('DOMContentLoaded', function () {
       menuRounder.classList.remove('menu-rounder--opened-all');
     }
     closeAllMenuLevels();
+    currentState = 0;
+    
+    // Обновляем позицию и классы
+    updateTransform();
+    updateParentClass();
   };
 
   
